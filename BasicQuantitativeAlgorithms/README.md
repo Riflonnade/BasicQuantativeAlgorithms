@@ -9,19 +9,29 @@ Pour tout ce qui concerne la démarche et les techniques mathématiques utilisé
 .
 ├── README.md
 ├── requirements.txt
-├── data/
-├── notebooks/
-│   ├── 01_simulation_examples.ipynb   # démonstration GBM
-│   └── 02_validation.ipynb            # (ajouté) validation moments
-├── src/
-│   ├── __init__.py
-│   ├── models.py                      # GeometricBrownianMotion (solution exacte)
-│   ├── plotting.py                    # visualisations simples
-│   ├── simulation.py                  # wrappers (exact / euler)
-│   └── stats.py                       # moments théoriques / stats empiriques
-└── tests/
-    ├── test_models.py                 # (fourni initialement)
-    └── test_stats.py                  # (ajout) validation moments
+├── setup.cfg
+├── .gitignore
+├── data/                          # Données de marché (fichiers CSV)
+├── notebooks/                     # Démonstrations et analyses
+│   ├── 01_overview_and_data.ipynb
+│   ├── 02_models_simulation.ipynb
+│   ├── 03_pricing_comparison.ipynb
+│   └── 04_calibration_and_risk.ipynb
+├── src/                           # Code source du projet
+│   ├── models/                    # Modèles stochastiques
+│   │   ├── base_model.py          # Classe parente abstraite
+│   │   ├── gbm.py                 # Geometric Brownian Motion
+│   │   ├── heston.py              # Modèle de Heston
+│   │   └── variance_gamma.py      # Modèle Variance Gamma
+│   ├── pricing/                   # Méthodes de valorisation
+│   │   ├── black_scholes.py       # Formules analytiques
+│   │   └── monte_carlo.py         # Simulations de Monte-Carlo
+│   ├── plotting.py                # Utilitaires graphiques
+│   ├── simulation.py              # Wrappers de simulation (Exact / Euler)
+│   ├── stats.py                   # Statistiques et moments (théoriques/empiriques)
+│   └── utils.py                   # Fonctions auxiliaires
+└── tests/                         # Validation et tests unitaires
+    └── test_stats.py
 ```
 
 ---
